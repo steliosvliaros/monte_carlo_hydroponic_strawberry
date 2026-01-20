@@ -11,5 +11,6 @@ dependencies:
   - ipykernel
   - pre-commit
   - nbstripout
+  - seaborn
   - pip:
       - ruff
