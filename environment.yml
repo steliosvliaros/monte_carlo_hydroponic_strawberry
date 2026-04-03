@@ -12,5 +12,6 @@ dependencies:
   - pre-commit
   - nbstripout
   - seaborn
+  - openpyxl
   - pip:
       - ruff
