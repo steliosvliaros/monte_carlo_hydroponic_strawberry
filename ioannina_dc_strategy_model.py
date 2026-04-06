@@ -136,16 +136,12 @@ def annuity_payment(principal: float, annual_rate: float, tenor_years: int) -> f
 def blended_terminal_value(next_noi: float, exit_yield: float, tdc: float, strategy: Strategy) -> float:
     """Dogtags: #valuation #terminal-value #exit.
 
-    Blend the income-based exit value with a replacement-cost anchor so the
-    terminal sale price is not driven solely by a cap-rate extrapolation.
+    Estimate exit value from forward NOI using the income-capitalization
+    approach, with replacement cost acting only as a floor.
     """
     income_value = next_noi / exit_yield
     replacement_cost_value = tdc * strategy.replacement_cost_exit_ratio
-    income_weight = clamp(strategy.exit_income_weight, 0.0, 1.0)
-    gross_terminal_value = (
-        income_weight * income_value
-        + (1.0 - income_weight) * replacement_cost_value
-    )
+    gross_terminal_value = max(income_value, replacement_cost_value)
     sale_cost_pct = clamp(strategy.exit_transaction_cost_pct, 0.0, 0.25)
     return gross_terminal_value * (1.0 - sale_cost_pct)
 

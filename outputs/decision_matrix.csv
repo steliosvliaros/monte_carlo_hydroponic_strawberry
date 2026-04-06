@@ -1,4 +1,4 @@
 Strategy,Weighted_Score_100,score_risk_adjusted_return,score_downside_resilience,score_absolute_upside,score_bankability_without_anchor,score_bankability_with_anchor,score_fit_with_ioannina,score_optionality,score_exit_sensitivity
-Powered Shell,65.0,2,2,3,3,3,5,5,4
-Build-to-exit,57.0,3,2,5,2,4,3,3,1
+Powered Shell,74.0,2,5,3,3,3,5,5,4
+Build-to-exit,52.0,2,3,3,2,4,3,3,1
 Turnkey,50.0,2,2,3,2,5,2,2,3
